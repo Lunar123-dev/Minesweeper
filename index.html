@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0b1120" />
+<title>Dò Mìn</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <header class="hud">
+    <div class="hud-group">
+      <div class="stat" title="Số mìn còn lại">
+        <span class="stat-ico">🚩</span><span id="mineCount">0</span>
+      </div>
+      <div class="stat" title="Thời gian">
+        <span class="stat-ico">⏱️</span><span id="timer">00:00</span>
+      </div>
+    </div>
+
+    <div class="hud-group">
+      <button id="btnFlagMode" class="icon-btn" title="Chế độ cắm cờ">🚩</button>
+      <button id="btnMusic" class="icon-btn" title="Bật / tắt nhạc">🔇</button>
+      <button id="btnNew" class="btn">Ván mới</button>
+      <button id="btnSettings" class="icon-btn" title="Cài đặt">⚙️</button>
+    </div>
+  </header>
+
+  <main class="board-wrap" id="boardWrap">
+    <div class="board" id="board"></div>
+  </main>
+
+</div>
+
+<div class="overlay hidden" id="overlay">
+  <div class="overlay-card">
+    <div class="overlay-emoji" id="overlayEmoji">🎉</div>
+    <h2 id="overlayTitle">Bạn thắng!</h2>
+    <p id="overlayText"></p>
+    <button class="btn btn-primary" id="btnPlayAgain">Chơi lại</button>
+  </div>
+</div>
+
+<div class="panel-backdrop hidden" id="panelBackdrop"></div>
+
+<aside class="panel" id="panel" aria-hidden="true">
+  <div class="panel-head">
+    <h2>⚙️ Cài đặt</h2>
+    <button class="icon-btn" id="btnClosePanel" aria-label="Đóng">✕</button>
+  </div>
+
+  <div class="panel-body">
+
+    <section class="field">
+      <h3>Độ khó</h3>
+      <div class="seg" id="levelSeg">
+        <button data-level="easy">Dễ<span>10 × 10</span></button>
+        <button data-level="medium">Vừa<span>25 × 25</span></button>
+        <button data-level="hard">Khó<span>50 × 50</span></button>
+      </div>
+    </section>
+
+    <section class="field">
+      <h3>Icon mìn</h3>
+      <div class="swatches" id="mineSwatches"></div>
+    </section>
+
+    <section class="field">
+      <h3>Icon cờ</h3>
+      <div class="swatches" id="flagSwatches"></div>
+    </section>
+
+    <section class="field">
+      <h3>Ảnh nền</h3>
+      <div class="swatches" id="bgSwatches"></div>
+    </section>
+
+    <section class="field">
+      <h3>Nhạc nền</h3>
+      <div class="row">
+        <button class="btn" id="btnMusicToggle">Bật nhạc</button>
+        <input type="range" id="volume" min="0" max="1" step="0.05" aria-label="Âm lượng" />
+      </div>
+    </section>
+
+    <section class="field">
+  <h3>Hiệu ứng âm thanh</h3>
+  <div class="row">
+    <button class="btn" id="btnSfxToggle">Bật SFX</button>
+    <input type="range" id="sfxVolume" min="0" max="1" step="0.05" aria-label="Âm lượng SFX" />
+  </div>
+</section>
+
+<section class="field">
+  <h3>Khác</h3>
+  <div class="row">
+    <button class="btn" id="btnReset">Xoá cài đặt</button>
+  </div>
+</section>
+
+  </div>
+</aside>
+
+<audio id="bgm" loop preload="none"></audio>
+<audio id="sfxClick" preload="auto" src="assets/audio/click.mp3"></audio>
+<audio id="sfxFlag"  preload="auto" src="assets/audio/flag.mp3"></audio>
+<audio id="sfxWin"   preload="auto" src="assets/audio/win.mp3"></audio>
+<audio id="sfxLose"  preload="auto" src="assets/audio/lose.mp3"></audio>
+<audio id="sfxBoom"  preload="auto" src="assets/audio/boom.mp3"></audio>
+
+<script src="game.js"></script>
+</body>
+</html>
