@@ -1,5 +1,5 @@
 {
   "appId": "com.lunar123.minesweeper",
   "appName": "Do Min",
-  "webDir": "."
+  "webDir": "www"
 }
