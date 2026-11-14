@@ -20,9 +20,16 @@ jobs:
       - name: 3. Install Dependencies
         run: npm install
 
-      # Xóa thư mục android cũ nếu có (tránh lỗi cache)
-      - name: 4. Clean Android Directory
-        run: rm -rf android
+      # Xóa thư mục android và www cũ (nếu có) để làm sạch
+      - name: 4. Clean Directories
+        run: rm -rf android www
+
+      # Tự động tạo thư mục www và copy toàn bộ code web vào đó
+      - name: 4.1 Prepare Web Directory
+        run: |
+          mkdir www
+          cp index.html style.css game.js favicon.svg icon.png www/
+          cp -r assets www/
 
       - name: 5. Init Capacitor Android Platform
         run: npx cap add android
